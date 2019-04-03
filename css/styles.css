@@ -508,13 +508,13 @@ section:last-of-type {
 .dropcap {
     display: inline-block;
     font-size: 5em;
-    line-height: 1.1em;
+    line-height: .9em;
     margin-right: 10px;
     font-weight: 700;
     /* font-family: 'PT Sans Narrow', sans-serif; */
-    background: #343434;
-    color: #fff;
-    padding: 5px 10px 0;
+    /*background: #343434;*/
+    color: #343434;
+    /*padding: 5px 10px 0;*/
     border-radius: 10px;
     float: left;
 }
