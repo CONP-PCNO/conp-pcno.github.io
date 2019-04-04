@@ -563,11 +563,9 @@ section:last-of-type {
         float: left;
         max-width: 150px;
         padding: 0;
-        margin: 0 20px 0 0;
+        margin: 1rem 20px 0 0;
     }
-    .entry-title,
-    .entry-subtitle,
-    .entry-content {
+    .entry-details{
         width: calc(100% - 170px);
         float: left;
     }
