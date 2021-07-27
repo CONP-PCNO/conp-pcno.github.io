@@ -30,6 +30,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+<!-- redirect -->
+    <!-- <meta http-equiv="refresh" content="15; url='https://neurolibre.org/'" /> -->
     
 </head>
 
@@ -45,11 +47,11 @@
                 </a>
             </div>
             <h1 class="site-title">NeuroLibre</h1>
-            <div class="nav">
+            <!-- <div class="nav">
                 <a href="team.html">
                     Our Team
                 </a>
-            </div>
+            </div> -->
         </div><!-- /.container -->
     </header>
 
@@ -61,80 +63,39 @@
             <div class="site-content-inner">
                 <img src="images/neurolibre-icon-red.png">
                 <p class="neurolibre-description">
-                    <span class="dropcap">N</span>eurolibre is a curated repository of interactive neuroscience notebooks, seamlessly integrating data, text, code and figures. Notebooks can be freely modified and re-executed through the web, offering a fully reproducible, “libre” path from data to figures. Neurolibre is powered by the <a href="https://mybinder.org/">Binder</a> project, with computational resources provided by <a href="http://conp.ca">CONP</a>, <a href="http://mcin.ca/technology/cbrain/">CBRAIN</a> and <a href="https://www.computecanada.ca/">Compute Canada</a>.
+                    <span class="dropcap">N</span>eurolibre has permanently moved to <a href="https://neurolibre.org/">https://neurolibre.org/</a>. If you are not automatically redirected to the page in <span id="seconds">15</span> seconds, please click the link.
                 </p>
             </div>
         </div>
     </section>
 
-    <section>
-        <div class="site-content">
-            <div class="card-holder">
-                <!-- this is a card and can be replicated for each notebook -->
-                <div class="card-long">
-                    <img src="images/thumbs/qmr-lab-logo.jpg" class="post-thumbnail">
-                    <div class="entry-details">
-                        <h2 class="entry-title">
-                            <a href="https://qmrlab.org/t1_book/intro">Quantitative T1 Mapping</a>
-                        </h2>
-                        <h3 class="entry-subtitle">In-depth interactive tutorial on the fundamentals of measurement techniques for the tissue-specific MRI signal recovery parameter, T1.</h3>
-                        <p class="entry-authors">Authors: Mathieu Boudreau, Agah Karakuzu, Ilana Leppert, Tommy Boshkovski, Tanguy Duval, Julien Cohen-Adad, Nikola Stikov</p>
-                        <p class="entry-content">This tutorial provides an introduction to quantitative T1 mapping, from an MRI physics perspective. Two widely used techniques are covered in-depth, Inversion Recovery and Variable Flip Angle (VFA), along with some discussions of cutting-edge variants of these techniques. This interactive tutorial is coded in both Octave (an open-source Matlab clone) and Python, and uses qMRLab for the T1 signal simulations and data fitting.</p>
-                    </div>
-                </div>    
+<script type="text/javascript">
+        // Countdown timer for redirecting to another URL after several seconds
 
-                <div class="card-long">
-                    <img src="images/thumbs/logo_sct.png" class="post-thumbnail">
-                    <div class="entry-details">
-                        <h2 class="entry-title">
-                            <a href="https://mathieuboudreau.github.io/pipelines-jupyter-book/01/sct_mtsat">Image processing with Spinal Cord Toolbox (SCT)</a>
-                        </h2>
-                        <h3 class="entry-subtitle">A step-by-step walkthrough of an example analysis pipeline using SCT, from raw data to final quantitative metrics.</h3>
-                        <p class="entry-authors">Authors: Julien Cohen-Adad and Mathieu Boudreau</p>
-                        <p class="entry-content">This notebook presents an example analysis pipeline using the Spinal Cord Toolbox (SCT), a suite of tools specialized for analysis of spinal cord MRI images of the spinal. Topics covered include: segmentation, masking, registration, warping, and quantitative metric computation. This tutorial was generated in a Jupyter Notebook and coded in Python.</p>
-                    </div>
-                </div> 
+var seconds = 15; // seconds for HTML
+var foo; // variable for clearInterval() function
 
-                <div class="card-long">
-                    <img src="images/thumbs/ni-learn.png" class="post-thumbnail">
-                    <div class="entry-details">
-                        <h2 class="entry-title">
-                            <a href="https://brainhack101.github.io/introML-book">Introduction to Machine Learning with Nilearn</a>
-                        </h2>
-                        <h3 class="entry-subtitle">An interactive introduction to machine learning with neuroimaging data, using the Nilearn software package.</h3>
-                        <p class="entry-authors">Authors: Elizabeth DuPre, Jacob Vogel,  Loïc Tetrel, Gaël Varoquaux</p>
-                        <p class="entry-content">An introductory tutorial for using the popular Nilearn software package to perform machine learning analyses with neuroimaging data. This material is adapted from the Montreal AI and Neuroscience (MAIN) 2018 workshops.</p>
-                    </div>
-                </div> 
+function redirect() {
+  document.location.href = 'https://neurolibre.org/';
+}
 
-                <div class="card-long">
-                    <img src="images/thumbs/adni-logo.png" class="post-thumbnail">
-                    <div class="entry-details">
-                        <h2 class="entry-title">
-                            <a href="https://simexp.github.io/vcog_hps_ad_book/intro.html">A highly predictive signature (HPS) of Alzheimer's disease dementia from cognitive and structural brain features</a>
-                        </h2>
-                        <h3 class="entry-subtitle">Signature of Alzheimer's disease with simulated cognitive and structural features.</h3>
-                        <p class="entry-authors">Authors: Angela Tam, Christian Dansereau, Yasser Iturria-Medina, Sebastian Urchs, Pierre Orban, Hanad Sharmarke, John Breitner, Pierre Bellec, for the Alzheimer’s Disease Neuroimaging Initiative</p>
-                        <p class="entry-content">A jupyter notebook containing analyses that give a highly predictive signature (HPS) of Alzheimer's disease dementia from cognitive and structural features using simulated data. <a href="https://doi.org/10.1101/352344" target="_blank">Original paper</a></p>
-                    </div>
-                </div> 
+function updateSecs() {
+  document.getElementById("seconds").innerHTML = seconds;
+  seconds--;
+  if (seconds == -1) {
+    clearInterval(foo);
+    redirect();
+  }
+}
 
-            </div>
-        </div>
-    </section>
+function countdownTimer() {
+  foo = setInterval(function() {
+    updateSecs()
+  }, 1000);
+}
 
-    <!-- Footer -->
-    <footer class="site-info">
-    
-        <!-- Contact Us -->
-        <div class="contact">
-            <div class="container">
-                <h2 class="section-heading">Contact Us</h2>
-                <p><span class="glyphicon glyphicon-earphone"></span><br> +1(23) 456 7890</p>
-                <p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>
-            </div>
-        </div>
-    </footer>
+countdownTimer();
+</script>
 
 </body>
 
